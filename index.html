@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
+
+    
 <body>
+
 
     <!-- ================= SVG ICON SPRITE (offline replacement for Material Symbols) ================= -->
     <svg style="display:none" aria-hidden="true">
@@ -150,16 +153,31 @@
                 </div>
             </div>
 
-            <div class="reveal platform-buttons">
-                <button class="platform-btn neon-border">
-                    <svg class="icon"><use href="#icon-gamepad"></use></svg>
-                    <span>XBOX SERIES X</span>
-                </button>
-                <button class="platform-btn neon-border">
-                    <svg class="icon"><use href="#icon-gamepad"></use></svg>
-                    <span>PLAYSTATION 5</span>
-                </button>
-            </div>
+            <!-- <div class="reveal platform-buttons">
+    <button class="btn btn--platform xbox neon-border">
+        <svg class="icon"><use href="#icon-xbox"></use></svg>
+        <span>XBOX SERIES X,S</span>
+    </button>
+
+    <button class="btn btn--platform playstation neon-border">
+        <svg class="icon"><use href="#icon-playstation"></use></svg>
+        <span>PLAYSTATION 4,5</span>
+    </button>
+</div> -->
+
+<div class="reveal platform-buttons">
+
+    <button class="btn btn--platform xbox neon-border">
+        <img src="images/xbox.png" class="icon">
+        <span>XBOX SERIES X,S</span>
+    </button>
+
+    <button class="btn btn--platform playstation neon-border">
+        <img src="images/playstation.png" class="icon">
+        <span>PLAYSTATION 4,5</span>
+    </button>
+
+</div>
 
             <div class="reveal platform-strip">
                 <span class="platform-strip__label">Available across</span>
@@ -981,6 +999,8 @@
     <div id="toast-container" class="toast-container"></div>
 
     <script src="./js/script.js"></script>
+
+   
 </body>
 
 </html>

@@ -241,6 +241,33 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
 }
 .icon-btn:hover { background: var(--color-primary); color: var(--color-on-primary); }
 
+.btn--platform {
+    background: var(--color-surface-container-high);
+    color: var(--color-on-surface);
+    border: 1px solid var(--color-outline-variant);
+}
+
+/* Xbox */
+.btn.xbox {
+    color: #107C10;
+}
+
+/* PlayStation */
+.btn.playstation {
+    color: #003791;
+}
+
+/* Fix icon size */
+.btn .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.btn .icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
 /* ---------- Preloader ---------- */
 .preloader {
     position: fixed; inset: 0; z-index: 100;
