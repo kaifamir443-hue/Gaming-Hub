@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Hub — Your Ultimate Destination</title>
+    <meta name="description" content="Browse what's available to play right now across PC, PlayStation, Xbox and Nintendo.">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <!-- ================= SVG ICON SPRITE (offline replacement for Material Symbols) ================= -->
+    <svg style="display:none" aria-hidden="true">
+        <defs>
+            <g id="icon-defs" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+                <symbol id="icon-search-off" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="4" y1="20" x2="20" y2="4"/></symbol>
+                <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 21C12 21 4 14 4 8.5C4 5.5 6.5 3 9.3 3C10.9 3 12 4 12 4C12 4 13.1 3 14.7 3C17.5 3 20 5.5 20 8.5C20 14 12 21 12 21Z"/></symbol>
+                <symbol id="icon-heart-filled" viewBox="0 0 24 24"><path stroke="none" fill="currentColor" d="M12 21C12 21 4 14 4 8.5C4 5.5 6.5 3 9.3 3C10.9 3 12 4 12 4C12 4 13.1 3 14.7 3C17.5 3 20 5.5 20 8.5C20 14 12 21 12 21Z"/></symbol>
+                <symbol id="icon-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+                <symbol id="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+                <symbol id="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+                <symbol id="icon-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+                <symbol id="icon-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+                <symbol id="icon-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+                <symbol id="icon-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+                <symbol id="icon-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+                <symbol id="icon-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+                <symbol id="icon-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
+                <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 7 12 13 22 7"/></symbol>
+                <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z"/></symbol>
+                <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+                <symbol id="icon-movie" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10 9 16 12 10 15" fill="currentColor" stroke="none"/></symbol>
+                <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+                <symbol id="icon-gamepad" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4"/><path d="M8 10v4"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="11" r="1" fill="currentColor" stroke="none"/></symbol>
+                <symbol id="icon-swords" viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="4"/><line x1="20" y1="20" x2="4" y2="4"/></symbol>
+                <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+                <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+                <symbol id="icon-car" viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><circle cx="7.5" cy="17" r="1.5" fill="currentColor" stroke="none"/><circle cx="16.5" cy="17" r="1.5" fill="currentColor" stroke="none"/></symbol>
+                <symbol id="icon-soccer" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="12 8 14.5 10 13.5 13 10.5 13 9.5 10" fill="currentColor" stroke="none"/></symbol>
+                <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="13" x2="15" y2="15"/><line x1="10" y1="2" x2="14" y2="2"/></symbol>
+                <symbol id="icon-bolt" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor" stroke="none"/></symbol>
+                <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M12 2s-7 6-7 12a7 7 0 0 0 14 0c0-3-2-5-2-5s0 3-2 3c-1 0-1.5-1-1.5-2.5C13.5 6 12 2 12 2z"/></symbol>
+                <symbol id="icon-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></symbol>
+                <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+                <symbol id="icon-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+            </g>
+        </defs>
+    </svg>
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__inner">
+            <div class="preloader__ring"></div>
+            <span class="preloader__label">Loading</span>
+        </div>
+    </div>
+
+    <!-- Scroll progress -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Announcement ticker -->
+    <div class="ticker">
+        <div class="ticker__track">
+            <div class="ticker__group">
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-bolt"></use></svg>New listings added daily</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-check-circle"></use></svg>Verified availability data</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-globe"></use></svg>All platforms in one place</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-flame"></use></svg>500+ titles catalogued</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-heart"></use></svg>Track your favorites for free</span>
+            </div>
+            <div class="ticker__group" aria-hidden="true">
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-bolt"></use></svg>New listings added daily</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-check-circle"></use></svg>Verified availability data</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-globe"></use></svg>All platforms in one place</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-flame"></use></svg>500+ titles catalogued</span>
+                <span class="ticker__item"><svg class="icon icon--sm"><use href="#icon-heart"></use></svg>Track your favorites for free</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="site-header" class="site-header">
+        <div class="brand reveal">
+            <div class="brand__mark">
+                <svg class="brand__icon" viewBox="0 0 48 48" fill="currentColor"><path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"/></svg>
+            </div>
+            <h2 class="brand__name">Gaming Hub</h2>
+        </div>
+        <nav class="nav-desktop">
+            <div class="nav-links">
+                <a class="nav-link" href="#">Store</a>
+                <a class="nav-link" href="#">Library</a>
+                <a class="nav-link" href="#">Community</a>
+                <a class="nav-link" href="#">Support</a>
+            </div>
+            <div id="header-auth-container" class="header-auth"></div>
+        </nav>
+        <button id="mobile-menu-btn" class="icon-btn nav-mobile-toggle" aria-label="Open menu">
+            <svg class="icon"><use href="#icon-menu"></use></svg>
+        </button>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <button id="mobile-menu-close" class="icon-btn mobile-menu__close" aria-label="Close menu">
+            <svg class="icon icon--lg"><use href="#icon-close"></use></svg>
+        </button>
+        <a href="#" class="mobile-menu__link">Store</a>
+        <a href="#" class="mobile-menu__link">Library</a>
+        <a href="#" class="mobile-menu__link">Community</a>
+        <a href="#" class="mobile-menu__link">Support</a>
+        <div id="mobile-auth-container" class="mobile-menu__auth"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero__mesh"></div>
+        <div class="hero__fade"></div>
+        <div id="hero-spotlight" class="hero__spotlight"></div>
+
+        <div class="float-orb float-orb--primary" style="top:18%; left:12%; --dx:24px; --dy:-18px; animation-duration:7s;"></div>
+        <div class="float-orb float-orb--secondary" style="top:30%; right:16%; --dx:-20px; --dy:22px; animation-duration:9s;"></div>
+        <div class="float-orb float-orb--tertiary" style="bottom:28%; left:20%; --dx:16px; --dy:20px; animation-duration:8s;"></div>
+        <div class="float-orb float-orb--secondary float-orb--sm" style="top:60%; right:28%; --dx:-14px; --dy:-16px; animation-duration:6s;"></div>
+        <div class="float-orb float-orb--primary float-orb--sm" style="bottom:20%; right:12%; --dx:18px; --dy:-14px; animation-duration:10s;"></div>
+
+        <div class="hero__content">
+            <div class="reveal hero__intro">
+                <span class="eyebrow">
+                    <span class="eyebrow__dot"></span>
+                    Browse before you buy — no fees, no login required
+                </span>
+                <h1 class="hero__title">Gaming Hub</h1>
+                <p class="hero__subtitle">
+                    A living catalogue of what's playable right now. Explore titles across every platform,
+                    filter by genre, and keep a personal shortlist of what's next.
+                </p>
+            </div>
+
+            <div class="reveal search-bar-wrap">
+                <div class="search-bar">
+                    <svg class="icon search-bar__icon"><use href="#icon-search"></use></svg>
+                    <input id="game-search-input" class="search-bar__input" placeholder="Search for games, Xbox, PlayStation..." type="text">
+                    <button id="game-search-btn" class="btn btn--primary search-bar__btn">Find</button>
+                </div>
+            </div>
+
+            <div class="reveal platform-buttons">
+                <button class="platform-btn neon-border">
+                    <svg class="icon"><use href="#icon-gamepad"></use></svg>
+                    <span>XBOX SERIES X</span>
+                </button>
+                <button class="platform-btn neon-border">
+                    <svg class="icon"><use href="#icon-gamepad"></use></svg>
+                    <span>PLAYSTATION 5</span>
+                </button>
+            </div>
+
+            <div class="reveal platform-strip">
+                <span class="platform-strip__label">Available across</span>
+                <span class="platform-strip__item"><svg class="icon"><use href="#icon-monitor"></use></svg>PC / Steam</span>
+                <span class="platform-strip__item"><svg class="icon"><use href="#icon-gamepad"></use></svg>PlayStation</span>
+                <span class="platform-strip__item"><svg class="icon"><use href="#icon-gamepad"></use></svg>Xbox</span>
+                <span class="platform-strip__item"><svg class="icon"><use href="#icon-gamepad"></use></svg>Nintendo</span>
+            </div>
+        </div>
+
+        <div class="hero__scroll-hint">
+            <span>Scroll</span>
+            <svg class="icon"><use href="#icon-chevron-down"></use></svg>
+        </div>
+    </section>
+
+    <!-- Stats strip -->
+    <section class="stats">
+        <div class="stats__grid">
+            <div class="reveal stats__item">
+                <span class="stats__number"><span class="stat-counter" data-target="500">0</span>+</span>
+                <span class="stats__label">Titles catalogued</span>
+            </div>
+            <div class="reveal stats__item" style="transition-delay:0.08s">
+                <span class="stats__number"><span class="stat-counter" data-target="24">0</span></span>
+                <span class="stats__label">Genres curated</span>
+            </div>
+            <div class="reveal stats__item" style="transition-delay:0.16s">
+                <span class="stats__number"><span class="stat-counter" data-target="4">0</span></span>
+                <span class="stats__label">Platforms tracked</span>
+            </div>
+            <div class="reveal stats__item" style="transition-delay:0.24s">
+                <span class="stats__number"><span class="stat-counter" data-target="24">0</span>h</span>
+                <span class="stats__label">Listing refresh</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section">
+        <div class="reveal section__header">
+            <h2 class="section__title">Browse by Genre</h2>
+            <a class="link-arrow" href="#">
+                View all categories <svg class="icon"><use href="#icon-arrow-right"></use></svg>
+            </a>
+        </div>
+        <div class="genre-grid">
+            <div class="reveal genre-card">
+                <div class="genre-card__icon genre-card__icon--primary"><svg class="icon icon--lg"><use href="#icon-swords"></use></svg></div>
+                <span class="genre-card__label">ACTION</span>
+            </div>
+            <div class="reveal genre-card" style="transition-delay:0.06s">
+                <div class="genre-card__icon genre-card__icon--secondary"><svg class="icon icon--lg"><use href="#icon-compass"></use></svg></div>
+                <span class="genre-card__label">ADVENTURE</span>
+            </div>
+            <div class="reveal genre-card" style="transition-delay:0.12s">
+                <div class="genre-card__icon genre-card__icon--tertiary"><svg class="icon icon--lg"><use href="#icon-shield"></use></svg></div>
+                <span class="genre-card__label">RPG</span>
+            </div>
+            <div class="reveal genre-card" style="transition-delay:0.18s">
+                <div class="genre-card__icon genre-card__icon--primary"><svg class="icon icon--lg"><use href="#icon-car"></use></svg></div>
+                <span class="genre-card__label">RACING</span>
+            </div>
+            <div class="reveal genre-card" style="transition-delay:0.24s">
+                <div class="genre-card__icon genre-card__icon--secondary"><svg class="icon icon--lg"><use href="#icon-soccer"></use></svg></div>
+                <span class="genre-card__label">SPORTS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="section section--tinted">
+        <div class="section__inner">
+            <div class="reveal section__header">
+                <h2 class="section__title" id="games-section-title">Featured Games</h2>
+                <div class="filter-toggle">
+                    <button id="filter-all-btn" class="btn-filter btn-filter--active">All Games</button>
+                    <button id="filter-fav-btn" class="btn-filter hidden">My Favorites (<span id="fav-count">0</span>)</button>
+                </div>
+            </div>
+            <div class="game-grid">
+                <!-- Card 1 -->
+                <div class="game-card tilt-card reveal-scale"
+     data-game-id="shadow-quest"
+     data-game-title="Shadow Quest"
+     data-game-genre="Action RPG"
+     data-category="new">  <!-- ✅ ADDED -->
+
+    <div class="game-card__media">
+        <img class="game-card__img" src="./images/DEATH STRANDING.jpeg" alt="Shadow Quest cover art" loading="lazy">
+
+        <div class="game-card__tag">
+            <svg class="icon icon--xs"><use href="#icon-monitor"></use></svg>PC
+        </div>
+
+        <div class="game-card__overlay">
+            <span>Dark fantasy · single player</span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <h3 class="game-card__title">DEATH STRANDING</h3>
+            <p class="game-card__genre">Action, RPG</p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <span class="price price--primary">6k Primary</span>
+                <span class="price price--secondary">4k Secondary</span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="shadow-quest">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+               <div class="game-card tilt-card reveal-scale" style="transition-delay:0.06s" data-game-id="neon-velocity" data-game-title="Assain'S Creed Black Flag" data-game-genre="Racing">
+    
+    <div class="game-card__media">
+        <!-- Editable Image -->
+        <img class="game-card__img editable-img" 
+             src="./images/Assain'S Creed Black Flag.jpeg" 
+             alt="Game cover" 
+             loading="lazy"
+             data-edit="image">
+
+        <div class="game-card__tag">
+            <svg class="icon icon--xs"><use href="#icon-gamepad"></use></svg>CROSS-PLAY
+        </div>
+
+        <div class="game-card__overlay">
+            <span contenteditable="true" data-edit="description"></span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <!-- Editable Title -->
+            <h3 class="game-card__title" contenteditable="true" data-edit="title">
+                Assain'S Creed Black Flag
+            </h3>
+
+            <!-- Editable Genre -->
+            <p class="game-card__genre" contenteditable="true" data-edit="genre">
+                Action-Adventure, Stealth, Open-world
+            </p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <!-- Editable Prices -->
+                <span class="price price--primary" contenteditable="true" data-edit="primary-price">
+                    6k Primary
+                </span>
+
+                <span class="price price--secondary" contenteditable="true" data-edit="secondary-price">
+                    4k Secondary
+                </span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="neon-velocity">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+               <div class="game-card tilt-card reveal-scale" style="transition-delay:0.12s" data-game-id="astral-odyssey" data-game-title="Astral Odyssey" data-game-genre="RPG">
+    
+    <div class="game-card__media">
+        <!-- Editable Image -->
+        <img class="game-card__img editable-img" 
+             src="./images/Call Of Duty.png" 
+             alt="Call Of Duty" 
+             loading="lazy"
+             data-edit="image">
+
+        <div class="game-card__tag game-card__tag--solid game-card__tag--tertiary">
+            CROSS-PLAY
+        </div>
+
+        <div class="game-card__overlay">
+            <span contenteditable="true" data-edit="description">
+                High fantasy · co-op campaign
+            </span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <!-- Editable Title -->
+            <h3 class="game-card__title" contenteditable="true" data-edit="title">
+                Call Of Duty
+            </h3>
+
+            <!-- Editable Genre -->
+            <p class="game-card__genre" contenteditable="true" data-edit="genre">
+                RPG
+            </p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <!-- Editable Prices -->
+                <span class="price price--primary" contenteditable="true" data-edit="primary-price">
+                    6k Primary
+                </span>
+
+                <span class="price price--secondary" contenteditable="true" data-edit="secondary-price">
+                    4k Secondary
+                </span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="astral-odyssey">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+               <div class="game-card tilt-card reveal-scale" style="transition-delay:0.18s" data-game-id="urban-siege" data-game-title="Urban Siege" data-game-genre="Tactical Shooter">
+    
+    <div class="game-card__media">
+        <!-- Editable Image -->
+        <img class="game-card__img editable-img" 
+             src="./images/GHOST.jpeg" 
+             alt="Ghost Of Yotei" 
+             loading="lazy"
+             data-edit="image">
+
+        <div class="game-card__tag game-card__tag--solid game-card__tag--primary">
+            Cross-Play
+        </div>
+
+        <div class="game-card__overlay">
+            <span contenteditable="true" data-edit="description">
+                Modern warfare · squad tactics
+            </span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <!-- Editable Title -->
+            <h3 class="game-card__title" contenteditable="true" data-edit="title">
+                Ghost Of Yotei
+            </h3>
+
+            <!-- Editable Genre -->
+            <p class="game-card__genre" contenteditable="true" data-edit="genre">
+                Action, Open World, Stealth, Light RPG
+            </p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <!-- Editable Prices -->
+                <span class="price price--primary" contenteditable="true" data-edit="primary-price">
+                    5.5k Primary
+                </span>
+
+                <span class="price price--secondary" contenteditable="true" data-edit="secondary-price">
+                    4k Secondary
+                </span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="urban-siege">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+                                <div class="game-card tilt-card reveal-scale" style="transition-delay:0.18s" data-game-id="days-gone" data-game-title="Days Gone Remastered" data-game-genre="Action">
+    
+    <div class="game-card__media">
+        <!-- Editable Image -->
+        <img class="game-card__img editable-img" 
+             src="./images/Days Gone.jpeg" 
+             alt="Days Gone" 
+             loading="lazy"
+             data-edit="image">
+
+        <div class="game-card__tag game-card__tag--solid game-card__tag--primary">
+            Cross-Play
+        </div>
+
+        <div class="game-card__overlay">
+            <!-- Editable Description -->
+            <span contenteditable="true" data-edit="description">
+                Action, Open World, Survival Horror, Stealth, Crafting
+            </span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <!-- Editable Title -->
+            <h3 class="game-card__title" contenteditable="true" data-edit="title">
+                Days Gone Remastered
+            </h3>
+
+            <!-- Editable Genre -->
+            <p class="game-card__genre" contenteditable="true" data-edit="genre">
+                Action, Open World, Survival Horror, Stealth, Crafting
+            </p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <!-- Editable Prices -->
+                <span class="price price--primary" contenteditable="true" data-edit="primary-price">
+                    4.5k Primary
+                </span>
+
+                <span class="price price--secondary" contenteditable="true" data-edit="secondary-price">
+                    3.5k Secondary
+                </span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="days-gone">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+                   <div class="game-card tilt-card reveal-scale" style="transition-delay:0.18s" data-game-id="first-light" data-game-title="First Light" data-game-genre="Action">
+    
+    <div class="game-card__media">
+        <!-- Editable Image -->
+        <img class="game-card__img editable-img" 
+             src="./images/First Light.jpeg" 
+             alt="First Light" 
+             loading="lazy"
+             data-edit="image">
+
+        <div class="game-card__tag game-card__tag--solid game-card__tag--primary">
+            Cross-Play
+        </div>
+
+        <div class="game-card__overlay">
+            <!-- Editable Description -->
+            <span contenteditable="true" data-edit="description">
+                Action, Superpowers, Shooter, Open World, Arcade Challenges
+            </span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <!-- Editable Title -->
+            <h3 class="game-card__title" contenteditable="true" data-edit="title">
+                First Light
+            </h3>
+
+            <!-- Editable Genre -->
+            <p class="game-card__genre" contenteditable="true" data-edit="genre">
+                Action, Superpowers, Shooter, Open World, Arcade Challenges
+            </p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <!-- Editable Prices -->
+                <span class="price price--primary" contenteditable="true" data-edit="primary-price">
+                    7.5k Primary
+                </span>
+
+                <span class="price price--secondary" contenteditable="true" data-edit="secondary-price">
+                    5.5k Secondary
+                </span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="first-light">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="game-card tilt-card reveal-scale" style="transition-delay:0.24s" data-game-id="spider-man-2" data-game-title="Spider Man 2" data-game-genre="Action">
+    
+    <div class="game-card__media">
+        <!-- Editable Image -->
+        <img class="game-card__img editable-img" 
+             src="./images/Tekken 8.jpeg" 
+             alt="Tekken 8" 
+             loading="lazy"
+             data-edit="image">
+
+        <div class="game-card__tag game-card__tag--solid game-card__tag--primary">
+            Cross-Play
+        </div>
+
+        <div class="game-card__overlay">
+            <!-- Editable Description -->
+            <span contenteditable="true" data-edit="description">
+                Action, Open World, Superhero, Story Rich
+            </span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <!-- Editable Title -->
+            <h3 class="game-card__title" contenteditable="true" data-edit="title">
+                Tekken 8
+            </h3>
+
+            <!-- Editable Genre -->
+            <p class="game-card__genre" contenteditable="true" data-edit="genre">
+                Action, Open World, Superhero, Story Rich
+            </p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <!-- Editable Prices -->
+                <span class="price price--primary" contenteditable="true" data-edit="primary-price">
+                    8k Primary
+                </span>
+
+                <span class="price price--secondary" contenteditable="true" data-edit="secondary-price">
+                    6k Secondary
+                </span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="spider-man-2">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="game-card tilt-card reveal-scale" style="transition-delay:0.30s" data-game-id="god-of-war" data-game-title="God Of War Ragnarok" data-game-genre="Action RPG">
+    
+    <div class="game-card__media">
+        <!-- Editable Image -->
+        <img class="game-card__img editable-img" 
+             src="./images/LEGO BATMAN.jpeg" 
+             alt="lego BATMAN" 
+             loading="lazy"
+             data-edit="image">
+
+        <div class="game-card__tag game-card__tag--solid game-card__tag--secondary">
+            Cross-Play
+        </div>
+
+        <div class="game-card__overlay">
+            <!-- Editable Description -->
+            <span contenteditable="true" data-edit="description">
+                Action, RPG, Story Rich, Mythology
+            </span>
+        </div>
+    </div>
+
+    <div class="game-card__body">
+        <div>
+            <!-- Editable Title -->
+            <h3 class="game-card__title" contenteditable="true" data-edit="title">
+                Lego Batman
+            </h3>
+
+            <!-- Editable Genre -->
+            <p class="game-card__genre" contenteditable="true" data-edit="genre">
+                Action, RPG, Story Rich, Mythology
+            </p>
+        </div>
+
+        <div class="game-card__footer">
+            <div class="game-card__price">
+                <!-- Editable Prices -->
+                <span class="price price--primary" contenteditable="true" data-edit="primary-price">
+                    7.5k Primary
+                </span>
+
+                <span class="price price--secondary" contenteditable="true" data-edit="secondary-price">
+                    5.5k Secondary
+                </span>
+            </div>
+
+            <button class="favorite-btn" data-game-id="god-of-war">
+                <svg class="icon"><use href="#icon-heart"></use></svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+                <!-- Card 5 (hidden by default, appears in Favorites) -->
+                <div class="game-card tilt-card hidden" data-game-id="cyber-rage" data-game-title="Cyber Rage: Retribution" data-game-genre="Action" data-extra-card="true">
+                    <div class="game-card__media">
+                        <img class="game-card__img" src="./images/cyber-rage.jpg" alt="Cyber Rage: Retribution cover art" loading="lazy">
+                    </div>
+                    <div class="game-card__body">
+                        <div>
+                            <h3 class="game-card__title">Cyber Rage: Retribution</h3>
+                            <p class="game-card__genre">Action</p>
+                        </div>
+                        <div class="game-card__footer">
+                            <div class="game-card__price">
+                                <span class="price price--primary">$14.99</span>
+                            </div>
+                            <button class="favorite-btn" data-game-id="cyber-rage">
+                                <svg class="icon"><use href="#icon-heart"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 (hidden by default, appears in Favorites) -->
+                <div class="game-card tilt-card hidden" data-game-id="islands-of-wonder" data-game-title="Islands of Wonder" data-game-genre="Adventure" data-extra-card="true">
+                    <div class="game-card__media">
+                        <img class="game-card__img" src="./images/islands-of-wonder.jpg" alt="Islands of Wonder cover art" loading="lazy">
+                    </div>
+                    <div class="game-card__body">
+                        <div>
+                            <h3 class="game-card__title">Islands of Wonder</h3>
+                            <p class="game-card__genre">Adventure</p>
+                        </div>
+                        <div class="game-card__footer">
+                            <div class="game-card__price">
+                                <span class="price price--secondary">$23.99</span>
+                            </div>
+                            <button class="favorite-btn" data-game-id="islands-of-wonder">
+                                <svg class="icon"><use href="#icon-heart"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty States -->
+                <div id="favorites-empty-state" class="empty-state hidden">
+                    <svg class="icon icon--xl"><use href="#icon-heart-filled"></use></svg>
+                    <div>
+                        <h4 class="empty-state__title">Your Library is Empty</h4>
+                        <p class="empty-state__text">Click the heart icon on your favorite games to see them listed here.</p>
+                    </div>
+                    <button id="explore-games-btn" class="btn btn--primary">Explore Games</button>
+                </div>
+
+                <div id="search-empty-state" class="empty-state hidden">
+                    <svg class="icon icon--xl"><use href="#icon-search-off"></use></svg>
+                    <div>
+                        <h4 class="empty-state__title">No Games Found</h4>
+                        <p class="empty-state__text">We couldn't find any games matching your search. Try another name!</p>
+                    </div>
+                    <button id="clear-search-btn" class="btn btn--secondary">Clear Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Now Carousel -->
+    <section class="section">
+        <div class="reveal section__header">
+            <div>
+                <h2 class="section__title">Trending Now</h2>
+                <p class="section__subtitle">What the community is browsing this week</p>
+            </div>
+            <div class="carousel-nav">
+                <button id="trend-prev" class="icon-btn" aria-label="Scroll left"><svg class="icon"><use href="#icon-chevron-left"></use></svg></button>
+                <button id="trend-next" class="icon-btn" aria-label="Scroll right"><svg class="icon"><use href="#icon-chevron-right"></use></svg></button>
+            </div>
+        </div>
+        <div id="trend-track" class="carousel-track reveal">
+            <div class="trend-card tilt-card">
+                <div class="trend-card__media">
+                    <img class="trend-card__img" src="./images/shadow-quest.jpg" alt="Shadow Quest" loading="lazy">
+                    <span class="trend-card__badge">#1 TRENDING</span>
+                </div>
+                <div class="trend-card__body">
+                    <h3 class="trend-card__title">Shadow Quest</h3>
+                    <p class="trend-card__meta">Action RPG · PC</p>
+                </div>
+            </div>
+            <div class="trend-card tilt-card">
+                <div class="trend-card__media">
+                    <img class="trend-card__img" src="./images/urban-siege.jpg" alt="Urban Siege" loading="lazy">
+                    <span class="trend-card__badge">#2 TRENDING</span>
+                </div>
+                <div class="trend-card__body">
+                    <h3 class="trend-card__title">Urban Siege</h3>
+                    <p class="trend-card__meta">Tactical Shooter · Xbox</p>
+                </div>
+            </div>
+            <div class="trend-card tilt-card">
+                <div class="trend-card__media">
+                    <img class="trend-card__img" src="./images/astral-odyssey.jpg" alt="Astral Odyssey" loading="lazy">
+                    <span class="trend-card__badge">#3 TRENDING</span>
+                </div>
+                <div class="trend-card__body">
+                    <h3 class="trend-card__title">Astral Odyssey</h3>
+                    <p class="trend-card__meta">RPG · Cross-play</p>
+                </div>
+            </div>
+            <div class="trend-card tilt-card">
+                <div class="trend-card__media">
+                    <img class="trend-card__img" src="./images/neon-velocity.jpg" alt="Neon Velocity" loading="lazy">
+                    <span class="trend-card__badge">#4 TRENDING</span>
+                </div>
+                <div class="trend-card__body">
+                    <h3 class="trend-card__title">Neon Velocity</h3>
+                    <p class="trend-card__meta">Racing · Cross-play</p>
+                </div>
+            </div>
+            <div class="trend-card tilt-card">
+                <div class="trend-card__media">
+                    <img class="trend-card__img" src="./images/islands-of-wonder.jpg" alt="Islands of Wonder" loading="lazy">
+                    <span class="trend-card__badge">#5 TRENDING</span>
+                </div>
+                <div class="trend-card__body">
+                    <h3 class="trend-card__title">Islands of Wonder</h3>
+                    <p class="trend-card__meta">Adventure · PC</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot Deals Section -->
+    <section class="section">
+        <div class="reveal deals-header">
+            <div class="deals-header__title-wrap">
+                <h2 class="section__title">Hot Deals</h2>
+                <div class="badge-pulse-tag">ENDING SOON</div>
+            </div>
+            <div class="deals-header__countdown">
+                <svg class="icon"><use href="#icon-clock"></use></svg>
+                Offers refresh in
+                <span id="deal-countdown" class="countdown-box">00:00:00</span>
+            </div>
+        </div>
+        <div class="deal-grid">
+            <div class="reveal-scale deal-card">
+                <img class="deal-card__img" src="./images/cyber-rage.jpg" alt="Cyber Rage: Retribution">
+                <div class="deal-card__overlay">
+                    <div class="deal-card__discount deal-card__discount--error">-75%</div>
+                    <h3 class="deal-card__title">Cyber Rage: Retribution</h3>
+                    <p class="deal-card__text">The ultimate cybernetic slasher. Experience pure adrenaline.</p>
+                    <button class="favorite-btn favorite-btn--on-image" data-game-id="cyber-rage">
+                        <svg class="icon"><use href="#icon-heart"></use></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="reveal-scale deal-card" style="transition-delay:0.1s">
+                <img class="deal-card__img" src="./images/islands-of-wonder.jpg" alt="Islands of Wonder">
+                <div class="deal-card__overlay">
+                    <div class="deal-card__discount deal-card__discount--secondary">-60%</div>
+                    <h3 class="deal-card__title">Islands of Wonder</h3>
+                    <p class="deal-card__text">Explore the uncharted frontiers of a lost world.</p>
+                    <button class="favorite-btn favorite-btn--on-image" data-game-id="islands-of-wonder">
+                        <svg class="icon"><use href="#icon-heart"></use></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="section section--tinted">
+        <div class="section__inner">
+            <div class="reveal" style="margin-bottom:2.5rem">
+                <h2 class="section__title">Coming Soon</h2>
+                <p class="section__subtitle">Titles landing in the catalogue soon — add them to favorites to track</p>
+            </div>
+            <div class="soon-grid">
+                <div class="reveal-scale soon-card">
+                    <img class="soon-card__img" src="./images/cyber-rage.jpg" alt="Cyber Rage 2: Ascension">
+                    <div class="soon-card__overlay">
+                        <span class="soon-card__tag">COMING SOON</span>
+                        <h3 class="soon-card__title">Cyber Rage 2: Ascension</h3>
+                        <p class="soon-card__meta">Est. release — Q1 next year</p>
+                    </div>
+                </div>
+                <div class="reveal-scale soon-card" style="transition-delay:0.08s">
+                    <img class="soon-card__img" src="./images/urban-siege.jpg" alt="Urban Siege: Blackout">
+                    <div class="soon-card__overlay">
+                        <span class="soon-card__tag">COMING SOON</span>
+                        <h3 class="soon-card__title">Urban Siege: Blackout</h3>
+                        <p class="soon-card__meta">Est. release — Spring next year</p>
+                    </div>
+                </div>
+                <div class="reveal-scale soon-card" style="transition-delay:0.16s">
+                    <img class="soon-card__img" src="./images/islands-of-wonder.jpg" alt="Islands of Wonder II">
+                    <div class="soon-card__overlay">
+                        <span class="soon-card__tag">COMING SOON</span>
+                        <h3 class="soon-card__title">Islands of Wonder II</h3>
+                        <p class="soon-card__meta">Est. release — Summer next year</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="blob blob--primary"></div>
+        <div class="blob blob--secondary"></div>
+        <div class="reveal newsletter__card">
+            <svg class="icon icon--xl"><use href="#icon-mail"></use></svg>
+            <h2 class="newsletter__title">Never miss a new listing</h2>
+            <p class="newsletter__text">Get a weekly note when new titles, genres, or platforms are added to the catalogue. No spam, unsubscribe anytime.</p>
+            <div class="newsletter__form">
+                <input id="newsletter-email" class="newsletter__input" placeholder="Email address" type="email">
+                <button id="newsletter-btn" class="btn btn--primary">Join Free</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <div class="brand">
+                    <div class="brand__mark">
+                        <svg class="brand__icon" viewBox="0 0 48 48" fill="currentColor"><path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"/></svg>
+                    </div>
+                    <span class="footer__brand-name">Gaming Hub</span>
+                </div>
+                <p class="footer__desc">A catalogue-first destination for discovering what's available to play right now — across PC, PlayStation, Xbox and Nintendo.</p>
+                <div class="footer__social">
+                    <a class="social-btn" href="#"><svg class="icon"><use href="#icon-globe"></use></svg></a>
+                    <a class="social-btn" href="#"><svg class="icon"><use href="#icon-chat"></use></svg></a>
+                    <a class="social-btn" href="#"><svg class="icon"><use href="#icon-movie"></use></svg></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__heading">Explore</h4>
+                <ul class="footer__list">
+                    <li><a href="#">Games Library</a></li>
+                    <li><a href="#">New Releases</a></li>
+                    <li><a href="#">Top Rated</a></li>
+                    <li><a href="#">Upcoming Titles</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__heading">Support</h4>
+                <ul class="footer__list">
+                    <li><a href="#">Account Help</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__heading">Newsletter</h4>
+                <p class="footer__desc">Get the latest listing updates and gaming news delivered to your inbox.</p>
+                <div class="footer__mini-form">
+                    <input class="footer__mini-input" placeholder="Email address" type="email">
+                    <button class="btn btn--primary btn--sm">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2024 Gaming Hub Global Inc. All rights reserved.</p>
+            <div class="footer__legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg class="icon"><use href="#icon-arrow-up"></use></svg>
+    </button>
+
+    <!-- Login/Register Modal -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal__card">
+            <button id="close-modal-btn" class="icon-btn modal__close" aria-label="Close">
+                <svg class="icon"><use href="#icon-close"></use></svg>
+            </button>
+
+            <div class="modal__intro">
+                <div class="brand__mark">
+                    <svg class="brand__icon" viewBox="0 0 48 48" fill="currentColor"><path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"/></svg>
+                </div>
+                <h3 class="modal__brand">Gaming Hub</h3>
+                <p id="modal-subtitle" class="modal__subtitle">Join the ultimate gaming platform</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button id="tab-login" class="auth-tab auth-tab--active">LOG IN</button>
+                <button id="tab-register" class="auth-tab">REGISTER</button>
+            </div>
+
+            <form id="login-form" class="auth-form">
+                <div class="field">
+                    <label class="field__label">Username or Email</label>
+                    <input type="text" required id="login-identifier" class="field__input" placeholder="Enter username or email">
+                </div>
+                <div class="field">
+                    <label class="field__label">Password</label>
+                    <input type="password" required id="login-password" class="field__input" placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn--primary btn--block">Let's Play</button>
+            </form>
+
+            <form id="register-form" class="auth-form hidden">
+                <div class="field">
+                    <label class="field__label">Username</label>
+                    <input type="text" required id="reg-username" class="field__input" placeholder="gamer123">
+                </div>
+                <div class="field">
+                    <label class="field__label">Email Address</label>
+                    <input type="email" required id="reg-email" class="field__input" placeholder="gamer@gaminghub.com">
+                </div>
+                <div class="field">
+                    <label class="field__label">Password</label>
+                    <input type="password" required id="reg-password" class="field__input" placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn--gradient btn--block">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
